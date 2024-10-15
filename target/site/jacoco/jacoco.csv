@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+teste-unidade-2,br.com.valueprojects.mock_spring,Mock_SpringApplication,5,3,0,0,2,1,1,1,1,1
+teste-unidade-2,br.com.valueprojects.mock_spring.builder,CriadorDeJogo,18,30,0,0,6,8,4,5,4,5
+teste-unidade-2,br.com.valueprojects.mock_spring.model,Resultado,0,15,0,0,0,6,0,3,0,3
+teste-unidade-2,br.com.valueprojects.mock_spring.model,Pagamento,15,0,0,0,6,0,3,0,3,0
+teste-unidade-2,br.com.valueprojects.mock_spring.model,Juiz,5,52,2,6,1,11,2,6,0,4
+teste-unidade-2,br.com.valueprojects.mock_spring.model,Jogo,11,100,2,10,4,24,5,15,3,11
+teste-unidade-2,br.com.valueprojects.mock_spring.model,FinalizaJogo,1,72,2,6,0,20,2,7,0,5
+teste-unidade-2,br.com.valueprojects.mock_spring.model,Participante,19,45,7,7,8,15,8,4,2,3
+teste-unidade-2,infra,JogoDao,266,0,10,0,71,0,13,0,8,0
+teste-unidade-2,infra,JogoDaoFalso,62,0,8,0,15,0,10,0,6,0
+teste-unidade-2,br.com.valueprojects.mock_spring.controller,JogoController,37,13,0,0,9,3,3,1,3,1

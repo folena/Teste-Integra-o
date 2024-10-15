@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FinalizaJogo.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">teste-unidade-2</a> &gt; <a href="index.source.html" class="el_package">br.com.valueprojects.mock_spring.model</a> &gt; <span class="el_source">FinalizaJogo.java</span></div><h1>FinalizaJogo.java</h1><pre class="source lang-java linenums">package br.com.valueprojects.mock_spring.model;
+
+import java.util.Calendar;
+import java.util.List;
+
+import infra.JogoDao;
+
+
+
+public class FinalizaJogo {
+
+<span class="fc" id="L12">	private int total = 0;</span>
+	private final JogoDao dao;
+
+<span class="fc" id="L15">	public FinalizaJogo(JogoDao dao) {</span>
+<span class="fc" id="L16">		this.dao = dao;</span>
+<span class="fc" id="L17">	}</span>
+
+	public void finaliza() {
+<span class="fc" id="L20">		List&lt;Jogo&gt; todosJogosEmAndamento = dao.emAndamento();</span>
+
+<span class="fc bfc" id="L22" title="All 2 branches covered.">		for (Jogo jogo : todosJogosEmAndamento) {</span>
+<span class="pc bpc" id="L23" title="1 of 2 branches missed.">			if (iniciouSemanaAnterior(jogo)) {</span>
+<span class="fc" id="L24">				jogo.finaliza();</span>
+<span class="fc" id="L25">				total++;</span>
+<span class="fc" id="L26">				dao.atualiza(jogo);</span>
+			}
+<span class="fc" id="L28">		}</span>
+<span class="fc" id="L29">	}</span>
+
+	private boolean iniciouSemanaAnterior(Jogo jogo) {
+<span class="pc bpc" id="L32" title="1 of 2 branches missed.">		return diasEntre(jogo.getData(), Calendar.getInstance()) &gt;= 7;</span>
+	}
+
+	private int diasEntre(Calendar inicio, Calendar fim) {
+<span class="fc" id="L36">		Calendar data = (Calendar) inicio.clone();</span>
+<span class="fc" id="L37">		int diasNoIntervalo = 0;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		while (data.before(fim)) {</span>
+<span class="fc" id="L39">			data.add(Calendar.DAY_OF_MONTH, 1);</span>
+<span class="fc" id="L40">			diasNoIntervalo++;</span>
+		}
+
+<span class="fc" id="L43">		return diasNoIntervalo;</span>
+	}
+
+	public int getTotalFinalizados() {
+<span class="fc" id="L47">		return total;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
