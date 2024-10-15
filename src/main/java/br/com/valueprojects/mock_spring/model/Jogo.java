@@ -77,4 +77,9 @@ public class Jogo {
 	 public void setData(Calendar data) {
 	        this.data = data;
 	    }
+
+	public Object getVencedor() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
